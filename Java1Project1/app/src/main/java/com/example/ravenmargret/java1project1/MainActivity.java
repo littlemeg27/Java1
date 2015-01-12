@@ -96,7 +96,7 @@ public class MainActivity extends ActionBarActivity
                 //Inside the action listener
                 indexNum = Integer.parseInt(String.valueOf(textBox2.getText()));
 
-                if (indexNum < arrayObject.size()) //If the size of the array is the size of the index put in 
+                if (indexNum < arrayObject.size()) //If the size of the array is the size of the index put in
                 {
                     //Log.i("index", arrayObject.get(indexNum) + "");
                     textBox2.setText(""); //Reset the number text box
