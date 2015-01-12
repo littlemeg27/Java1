@@ -35,30 +35,14 @@ public class MainActivity extends ActionBarActivity
     int averageCount;
     int indexNum;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mContext = this;
-
-        // Alert Dialog
-        AlertDialog.Builder dialog = new AlertDialog.Builder(mContext);
-        dialog.setTitle("Sample Alert Dialog");
-        dialog.setMessage("This is our sample Alert Dialog!");
-        dialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-            }
-        });
-        dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-            }
-        });
-        dialog.show();
 
 
         final ArrayList arrayObject = new ArrayList<String>();
@@ -80,22 +64,22 @@ public class MainActivity extends ActionBarActivity
                 {
                     arrayObject.add(addItem); //Add item to the array list
                     Log.i("Title", addItem);
-                    textBox.setText(null);
+                    textBox.setText("");
 
                     letterCount = addItem.length(); //Find out the length word
-                    Log.i("letter count", letterCount + "");
+                    //Log.i("letter count", letterCount + "");
 
                     counter = counter + letterCount; //Find out the total count of the letters
-                    Log.i("total count", counter + "");
+                    //Log.i("total count", counter + "");
                 }
 
                 wordCount = arrayObject.size(); //Find the word count
-                Log.i("word count", wordCount + "");
-                textView.setText(String.valueOf(wordCount));
+                //Log.i("word count", wordCount + "");
+                textView.setText(String.valueOf("Word Count: " + wordCount));
 
                 averageCount = counter / wordCount; //Find the average of the letters
-                Log.i("average count", averageCount + "");
-                textView2.setText(String.valueOf(averageCount));
+                //Log.i("average count", averageCount + "");
+                textView2.setText(String.valueOf("Average Letter Count: " + averageCount));
 
             }
 
@@ -107,43 +91,53 @@ public class MainActivity extends ActionBarActivity
             @Override
             public void onClick(View v)//Start of second Button
             {
+
+
                 //Inside the action listener
-                indexNum = textBox2.getText();
-                Log.i("index", arrayObject.get(indexNum));
-                textBox2.setText(null);
+                indexNum = Integer.parseInt(String.valueOf(textBox2.getText()));
 
-                if(!arrayObject.contains(addItem))
+                if (indexNum < arrayObject.size())
                 {
-                    AlertDialog.Builder dialog = new AlertDialog.Builder(mContext);
-                    dialog.setTitle("Picked an Index");
-                    dialog.setMessage("Index pick of the ArrayList:");
-                    dialog.setPositiveButton("Ok", new DialogInterface.OnClickListener()
+                    //Log.i("index", arrayObject.get(indexNum) + "");
+                    textBox2.setText("");
+                    String addItem = textBox2.getText().toString();
+
+                    if (!arrayObject.contains(addItem))
                     {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which);
+                        String theWord = "";
 
-                        {
+                        theWord = (String) arrayObject.get(indexNum);
 
-                        }
 
-                    });
+                        AlertDialog.Builder dialog = new AlertDialog.Builder(mContext);
+                        dialog.setTitle("Picked an Index");
+                        dialog.setMessage("Index pick of the ArrayList: " + theWord);
+                        dialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+
+                        });
+                        dialog.show();
+                    }
+
+
+
                 }
-
                 else
                 {
                     AlertDialog.Builder dialog = new AlertDialog.Builder(mContext);
                     dialog.setTitle("Picked an Index");
                     dialog.setMessage("The index you picked was invalid");
-                    dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener()
-                    {
+                    dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                         @Override
-                        public void onClick(DialogInterface dialog, int which);
-                        {
+                        public void onClick(DialogInterface dialog, int which) {
 
                         }
 
                     });
-
+                    dialog.show();
                 }
             } //End of onClick
 
