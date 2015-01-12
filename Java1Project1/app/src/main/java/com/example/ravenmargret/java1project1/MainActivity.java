@@ -64,7 +64,7 @@ public class MainActivity extends ActionBarActivity
                 {
                     arrayObject.add(addItem); //Add item to the array list
                     Log.i("Title", addItem);
-                    textBox.setText("");
+                    textBox.setText(""); //Reset the word text box
 
                     letterCount = addItem.length(); //Find out the length word
                     //Log.i("letter count", letterCount + "");
@@ -75,11 +75,11 @@ public class MainActivity extends ActionBarActivity
 
                 wordCount = arrayObject.size(); //Find the word count
                 //Log.i("word count", wordCount + "");
-                textView.setText(String.valueOf("Word Count: " + wordCount));
+                textView.setText(String.valueOf("Word Count: " + wordCount)); //Put the text into the text view
 
                 averageCount = counter / wordCount; //Find the average of the letters
                 //Log.i("average count", averageCount + "");
-                textView2.setText(String.valueOf("Average Letter Count: " + averageCount));
+                textView2.setText(String.valueOf("Average Letter Count: " + averageCount)); //Put the text into the text view
 
             }
 
@@ -96,25 +96,27 @@ public class MainActivity extends ActionBarActivity
                 //Inside the action listener
                 indexNum = Integer.parseInt(String.valueOf(textBox2.getText()));
 
-                if (indexNum < arrayObject.size())
+                if (indexNum < arrayObject.size()) //If the size of the array is the size of the index put in 
                 {
                     //Log.i("index", arrayObject.get(indexNum) + "");
-                    textBox2.setText("");
+                    textBox2.setText(""); //Reset the number text box
                     String addItem = textBox2.getText().toString();
 
-                    if (!arrayObject.contains(addItem))
+                    if (!arrayObject.contains(addItem)) //Check to see if there are items inside of the arraylist
                     {
                         String theWord = "";
 
-                        theWord = (String) arrayObject.get(indexNum);
+                        theWord = (String) arrayObject.get(indexNum); //Get the word from the index
 
 
-                        AlertDialog.Builder dialog = new AlertDialog.Builder(mContext);
+                        AlertDialog.Builder dialog = new AlertDialog.Builder(mContext); //Alert set for the index
                         dialog.setTitle("Picked an Index");
                         dialog.setMessage("Index pick of the ArrayList: " + theWord);
-                        dialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        dialog.setPositiveButton("Ok", new DialogInterface.OnClickListener()
+                        {
                             @Override
-                            public void onClick(DialogInterface dialog, int which) {
+                            public void onClick(DialogInterface dialog, int which)
+                            {
 
                             }
 
@@ -125,14 +127,16 @@ public class MainActivity extends ActionBarActivity
 
 
                 }
-                else
+                else //If a number is not picked then show this alert
                 {
                     AlertDialog.Builder dialog = new AlertDialog.Builder(mContext);
                     dialog.setTitle("Picked an Index");
                     dialog.setMessage("The index you picked was invalid");
-                    dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener()
+                    {
                         @Override
-                        public void onClick(DialogInterface dialog, int which) {
+                        public void onClick(DialogInterface dialog, int which)
+                        {
 
                         }
 
