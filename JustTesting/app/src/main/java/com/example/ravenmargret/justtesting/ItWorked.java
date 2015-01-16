@@ -1,11 +1,10 @@
-package com.example.ravenmargret.java1project2;
+package com.example.ravenmargret.justtesting;
 
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.text.Editable;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -15,10 +14,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import static android.widget.EditText.*;
-
-
-public class MainActivity extends ActionBarActivity
+public class ItWorked extends ActionBarActivity
 {
 
     private Button button;
@@ -41,7 +37,7 @@ public class MainActivity extends ActionBarActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_it_worked);
         mContext = this;
 
 
@@ -134,18 +130,18 @@ public class MainActivity extends ActionBarActivity
                             @Override
                             public void onClick(DialogInterface dialog, int which)
                             {
-                               arrayObject.remove(indexNum);
+                                arrayObject.remove(indexNum);
 
-                               wordCount = arrayObject.size(); //Find the word count
-                               //Log.i("word count", wordCount + "");
-                               textView.setText(String.valueOf("Word Count: " + wordCount)); //Put the text into the text view
+                                wordCount = arrayObject.size(); //Find the word count
+                                //Log.i("word count", wordCount + "");
+                                textView.setText(String.valueOf("Word Count: " + wordCount)); //Put the text into the text view
 
-                               Context context = getApplicationContext();
-                               CharSequence text = "The word has been removed from the list!";
-                               int duration = Toast.LENGTH_LONG;
+                                Context context = getApplicationContext();
+                                CharSequence text = "The word has been removed from the list!";
+                                int duration = Toast.LENGTH_LONG;
 
-                               Toast toast = Toast.makeText(context, text, duration);
-                               toast.show();
+                                Toast toast = Toast.makeText(context, text, duration);
+                                toast.show();
 
                             }
 
