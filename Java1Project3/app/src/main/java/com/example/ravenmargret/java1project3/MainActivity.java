@@ -25,7 +25,7 @@ public class MainActivity extends ActionBarActivity
     TextView color;
     TextView temperament;
     TextView age;
-    ListView listview;
+    ListView listView;
     HashMap <String, Dogs> dogs = new HashMap<String, Dogs>();
 
 
@@ -36,7 +36,7 @@ public class MainActivity extends ActionBarActivity
         setContentView(R.layout.activity_main);
 
         mContext = this;
-        listview = (ListView)findViewById(R.id.listview);
+        //listView = (ListView)findViewById(R.id.listView);
         breed = (TextView)findViewById(R.id.breed);
         type = (TextView)findViewById(R.id.type);
         hairType = (TextView)findViewById(R.id.hairType);
@@ -52,9 +52,5 @@ public class MainActivity extends ActionBarActivity
         dogs.put("Giant Schnauzer", new Dogs("Giant Schnauzer", "Working","Medium Coat","Black","Strong Willed, Loyal, Kind","10 Years"));
         dogs.put("Airedale Terrier", new Dogs("Airedale Terrier", "Terrier","Wavy Coat","Brown and Black","Outgoing, Alert, Friendly","11.5 Years"));
     }
-
-
-
-
 
 }

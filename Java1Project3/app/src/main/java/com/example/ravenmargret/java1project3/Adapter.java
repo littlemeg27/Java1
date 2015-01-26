@@ -4,6 +4,8 @@ package com.example.ravenmargret.java1project3;
 
 
 import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 import java.util.HashMap;
@@ -61,7 +63,20 @@ public class Adapter extends BaseAdapter
            {
                return null;
            }
-
-        
     }
+
+
+    @Override
+    public long getItemId(int spot)
+    {
+        return 0;
+    }
+
+    @Override
+    public View getView(int spot, View convertView, ViewGroup parent)
+    {
+        return convertView;
+    }
+
+
 }

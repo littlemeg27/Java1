@@ -7,8 +7,7 @@ package com.example.ravenmargret.java1project3;
 
 public class Dogs
 {
-    //All the private variables
-    private  String breed;
+    private  String breed; //All the private variables
     private  String type;
     private  String hairType;
     private  String color;
