@@ -4,6 +4,7 @@
 package com.example.ravenmargret.java1project3;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -29,7 +30,7 @@ public class MainActivity extends ActionBarActivity
     TextView color;
     TextView temperament;
     TextView age;
-    //ListView listView;
+    ListView listView;
     Spinner theSpinner;
     ArrayList dogs;
     ArrayAdapter<String> spinnerAdapter;
@@ -42,7 +43,7 @@ public class MainActivity extends ActionBarActivity
         setContentView(R.layout.activity_main);
 
         mContext = this;
-        //listView = (ListView)findViewById(R.id.listView);
+        listView = (ListView)findViewById(R.id.listView);
         breed = (TextView)findViewById(R.id.breed);
         type = (TextView)findViewById(R.id.type);
         hairType = (TextView)findViewById(R.id.hairType);
@@ -62,6 +63,18 @@ public class MainActivity extends ActionBarActivity
         spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item);
 
         theSpinner.setAdapter(spinnerAdapter);
+
+        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
+        {
+                final Adapter theAdapter = new Adapter(mContext, dogs);
+                listView.setAdapter(theAdapter);
+                listView.setOnItemClickListener((parent, view, position, id)->
+                {
+                    int count = 0;
+                    String key = "";
+                    
+                )};
+        }
     }
 
 
