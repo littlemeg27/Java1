@@ -38,16 +38,16 @@ public class Adapter extends BaseAdapter
     }
 
     @Override
-    public Object getItem(int spot)
+    public Object getItem(int position)
     {
-           if(mObjects != null && spot < mObjects.size() && spot >= 0)
+           if(mObjects != null && position < mObjects.size() && position >= 0)
            {
                 int count = 0;
                 String key = "";
 
                 for(Map.Entry<String, Dogs> entry: mObjects.entrySet())
                 {
-                     if(count == spot)
+                     if(count == position)
                      {
                          key = entry.getKey();
                      }
@@ -67,13 +67,13 @@ public class Adapter extends BaseAdapter
 
 
     @Override
-    public long getItemId(int spot)
+    public long getItemId(int position)
     {
         return 0;
     }
 
     @Override
-    public View getView(int spot, View convertView, ViewGroup parent)
+    public View getView(int position, View convertView, ViewGroup parent)
     {
         return convertView;
     }

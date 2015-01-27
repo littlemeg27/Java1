@@ -19,9 +19,10 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 
-public class MainActivity extends ActionBarActivity
+ public class MainActivity extends ActionBarActivity
 {
     Context mContext;
     TextView breed;
@@ -59,21 +60,35 @@ public class MainActivity extends ActionBarActivity
         dogs.add(new Dogs("Giant Schnauzer", "Working", "Medium Coat", "Black", "Strong Willed, Loyal, Kind", "10 Years"));
         dogs.add(new Dogs("Airedale Terrier", "Terrier", "Wavy Coat", "Brown and Black", "Outgoing, Alert, Friendly", "11.5 Years"));
 
-        theSpinner = (Spinner) findViewById(R.id.spinner);
-        spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item);
-
-        theSpinner.setAdapter(spinnerAdapter);
 
         if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
         {
                 final Adapter theAdapter = new Adapter(mContext, dogs);
                 listView.setAdapter(theAdapter);
-                listView.setOnItemClickListener((parent, view, position, id)->
+                listView.setOnItemClickListener((parent, view, position, id) ->
                 {
                     int count = 0;
                     String key = "";
-                    
+
+                    for(Map.Entry<String.dogs> entry:theAdapter.mObjects.entrySet())
+                    {
+                        if(count == position)
+                        {
+                            key.entry.getKey();
+                        }
+                        count++;
+                    }
+                    setLabelIs(key);
+                    count = 0;
+
                 )};
+        }
+        else if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT)
+        {
+            theSpinner = (Spinner) findViewById(R.id.spinner);
+            spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item);
+
+            theSpinner.setAdapter(spinnerAdapter);
         }
     }
 
