@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -78,7 +79,7 @@ import java.util.Map;
                         }
                         count++;
                     }
-                    setLabelIs(key);
+                    setLabels(key);
                     count = 0;
 
                 )};
@@ -89,6 +90,23 @@ import java.util.Map;
             spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item);
 
             theSpinner.setAdapter(spinnerAdapter);
+
+            theSpinner.setOnItemSelectedListener(new (AdapterView.OnItemSelectedListener()
+            {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, ong id)
+                {
+                    callLabels(position);
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView, parent)
+                {
+                    
+                }
+
+            });
+
         }
     }
 
