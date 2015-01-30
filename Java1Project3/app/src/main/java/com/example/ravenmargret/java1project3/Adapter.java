@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,7 +18,7 @@ public class Adapter extends BaseAdapter
     HashMap<String, Dogs> mObjects;
     private static final int ID_CONSTANT = 0x1000000;
 
-    public Adapter(Context d, HashMap<String, Dogs> objects)
+    public Adapter(Context d, ArrayList objects)
     {
         mContext = d;
         mObjects = objects;

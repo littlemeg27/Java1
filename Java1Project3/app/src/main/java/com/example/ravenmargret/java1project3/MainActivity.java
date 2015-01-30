@@ -22,6 +22,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import static android.R.layout.simple_list_item_1;
+
 
  public class MainActivity extends ActionBarActivity
 {
@@ -35,6 +37,7 @@ import java.util.Map;
     ListView listView;
     Spinner theSpinner;
     ArrayList dogs;
+    int dogsIndex;
     ArrayAdapter<String> spinnerAdapter;
 
 
@@ -62,53 +65,32 @@ import java.util.Map;
         dogs.add(new Dogs("Airedale Terrier", "Terrier", "Wavy Coat", "Brown and Black", "Outgoing, Alert, Friendly", "11.5 Years"));
 
 
-        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
-        {
-                final Adapter theAdapter = new Adapter(mContext, dogs);
-                listView.setAdapter(theAdapter);
-                listView.setOnItemClickListener((parent, view, position, id) ->
-                {
-                    int count = 0;
-                    String key = "";
 
-                    for(Map.Entry<String.dogs> entry:theAdapter.mObjects.entrySet())
-                    {
-                        if(count == position)
-                        {
-                            key.entry.getKey();
-                        }
-                        count++;
-                    }
-                    setLabels(key);
-                    count = 0;
-
-                )};
-        }
-        else if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT)
+        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT)
         {
             theSpinner = (Spinner) findViewById(R.id.spinner);
             spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item);
 
             theSpinner.setAdapter(spinnerAdapter);
 
-            theSpinner.setOnItemSelectedListener(new (AdapterView.OnItemSelectedListener()
+        }
+        else if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
+        {
+            final Adapter theAdapter = new Adapter(mContext, dogs);
+            listView.setAdapter(theAdapter);
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
             {
                 @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, ong id)
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id)
                 {
-                    callLabels(position);
-                }
+                    ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, simple_list_item_1, dogs);
 
-                @Override
-                public void onNothingSelected(AdapterView, parent)
-                {
-                    
+                    listView.setAdapter(arrayAdapter);
                 }
-
             });
-
         }
-    }
+
+    }//End of onCreate
 
 
 
